@@ -29,4 +29,5 @@ public:
 private:
 
 	mat4x4 ViewMatrix, ViewMatrixInverse;
+	vec3 offset_to_player;
 };
