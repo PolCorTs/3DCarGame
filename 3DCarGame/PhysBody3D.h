@@ -5,7 +5,15 @@
 
 class btRigidBody;
 class Module;
+class btVector3;
+class btQuaternion;
 
+enum SceneObjectType {
+	None = 0,
+	Floor,
+	Goal,
+
+};
 // =================================================
 struct PhysBody3D
 {
@@ -24,6 +32,7 @@ private:
 
 public:
 	p2List<Module*> collision_listeners;
+	SceneObjectType type = None;
 };
 
 #endif // __PhysBody3D_H__

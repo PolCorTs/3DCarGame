@@ -5,6 +5,23 @@
 #include "Primitive.h"
 
 #define MAX_SNAKE 2
+#define ROAD_COLOR Grey
+#define BALL_COLOR Orange
+#define FAN_COLOR Red
+#define LIMIT_COLOR Blue
+#define ROAD_HEIGHT 0.1f
+
+struct Fan {
+
+	Fan() {}
+	Fan(Cube c, Cube c2, PhysBody3D* bc, PhysBody3D* bc2) : cube(c), cube2(c2), body_cube(bc), body_cube2(bc2) {}
+
+	Cube cube;
+	Cube cube2;
+	PhysBody3D* body_cube = nullptr;
+	PhysBody3D* body_cube2 = nullptr;
+
+};
 
 struct PhysBody3D;
 struct PhysMotor3D;
@@ -20,6 +37,15 @@ public:
 	bool CleanUp();
 
 	void OnCollision(PhysBody3D* body1, PhysBody3D* body2);
+	
+	void CreateMap();
+
+
+	void CreateNormalFloor(float width, float height, float large, float x, float y, float z, Color color = ROAD_COLOR);
+
+	void CreateEndFloor(float width, float height, float large, float x, float y, float z, bool wallLeft = false, bool wallRight = false);
+	void CreateRamp(float width, float height, float large, float x, float y, float z, float degree, vec3 axis, Color color = ROAD_COLOR);
+	void CreateFan(float x, float y, float z, Color color = FAN_COLOR);
 
 public:
 	/*
@@ -41,4 +67,9 @@ public:
 
 	PhysMotor3D* left_wheel;
 	PhysMotor3D* right_wheel;
+
+
+	Cube dark_floor;
+	p2List<Cube> road;
+	p2List<Fan> fan;
 };
