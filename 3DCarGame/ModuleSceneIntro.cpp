@@ -49,7 +49,7 @@ void ModuleSceneIntro::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 void ModuleSceneIntro:: CreateMap() {
 
 	CreateNormalFloor(10, ROAD_HEIGHT, 400.f, 0, 10, 10, ROAD_COLOR);
-
+	CreateFan(0, 24, 30);
 
 }
 
@@ -73,4 +73,20 @@ void ModuleSceneIntro::CreateRamp(float width, float height, float large, float 
 	road.add(ret);
 
 	App->physics->AddBody(ret, 0);
+}
+void ModuleSceneIntro::CreateFan(float x, float y, float z, Color color) {
+
+	Cube c(1, 1, 1);
+	c.SetPos(x, y, z);
+	PhysBody3D* c_body = App->physics->AddBody(c, 0);
+
+	Cube c2(0.1f, 9.5f, 1);
+	c2.SetPos(x + 2, y, z);
+	PhysBody3D* c2_body = App->physics->AddBody(c2, 1000, SceneObjectType::Floor);
+	c2.color = Red;
+
+	App->physics->AddConstraintHinge(*c_body, *c2_body, { 0,0,0 }, { 0,1,0 }, { 0,0,1 }, { 1,0,0 }, true);
+
+	Fan bl(c, c2, c_body, c2_body);
+	fan.add(bl);
 }
