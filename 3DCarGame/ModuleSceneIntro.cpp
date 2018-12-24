@@ -85,7 +85,7 @@ void ModuleSceneIntro::CreateFan(float x, float y, float z, Color color) {
 	PhysBody3D* c2_body = App->physics->AddBody(c2, 1000, SceneObjectType::Floor);
 	c2.color = Red;
 
-	App->physics->AddConstraintHinge(*c_body, *c2_body, { 0,0,0 }, { 0,1,0 }, { 0,0,1 }, { 1,0,0 }, true);
+	App->physics->AddConstraintHinge(*c_body, *c2_body, { 0,0,0 }, { 0,8,0 }, { 0,0,1 }, { 1,0,0 }, true);
 
 	Fan bl(c, c2, c_body, c2_body);
 	fan.add(bl);
