@@ -63,3 +63,14 @@ void ModuleSceneIntro::CreateNormalFloor(float width, float height, float large,
 
 	App->physics->AddBody(ret, 0);
 }
+
+void ModuleSceneIntro::CreateRamp(float width, float height, float large, float x, float y, float z, float degree, vec3 axis, Color color) {
+	Cube ret(width, height, large);
+	ret.SetPos(x, y, z);
+	ret.color = color;
+	ret.SetRotation(degree, axis);
+
+	road.add(ret);
+
+	App->physics->AddBody(ret, 0);
+}
