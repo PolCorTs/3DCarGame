@@ -97,7 +97,7 @@ bool ModulePlayer::Start()
 	car.wheels[3].steering = false;
 
 	vehicle = App->physics->AddVehicle(car);
-	vehicle->SetPos(0, 12, 10);
+	InitialPos();
 	
 	return true;
 }
@@ -154,4 +154,16 @@ update_status ModulePlayer::Update(float dt)
 }
 
 
+void ModulePlayer::InitialPos() const {
+
+	vehicle->SetRotation({ 0,0,0,1 });
+	vehicle->SetPos(0,12,10);
+}
+void ModulePlayer::RespawnCar() {
+	InitialPos();
+	vehicle->SetRotation({ 0,1,0,1 });
+	vehicle->vehicle->getRigidBody()->setAngularVelocity({ 0, 0, 0 });
+	vehicle->vehicle->getRigidBody()->setLinearVelocity({ 0, 0, 0 });
+	
+}
 

@@ -62,15 +62,24 @@ update_status ModuleSceneIntro::Update(float dt)
 
 void ModuleSceneIntro::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 {
+	if (body1->type == Floor)
+	{
+		App->player->RespawnCar();	
+	}
 }
 
 void ModuleSceneIntro:: CreateMap() {
 
+	CreateLowerLimit(1000, 1, 1000, 0, 4.5f, 0 ,Black);
 	//1st line
 	CreateNormalFloor(10, ROAD_HEIGHT, 180.f, 0, 10, 80 ,ROAD_COLOR);
 	CreateFan(0, 24, 30);
+
 	CreateFan(0, 24, 50);
 	CreateFan(0, 24, 70);
+
+	
+
 	
 	//2nd line
 	CreateNormalFloor(190, ROAD_HEIGHT, 10, -90, 10, 175, ROAD_COLOR);
@@ -119,6 +128,18 @@ void ModuleSceneIntro::CreateRamp(float width, float height, float large, float 
 	App->physics->AddBody(ret, 0);
 }
 
+void ModuleSceneIntro::CreateLowerLimit(float width, float height, float large, float x, float y, float z, Color color) {
+	Cube ret(width, height, large);
+	ret.SetPos(x, y, z);
+	ret.color = color;
+
+
+	road.add(ret);
+	
+	PhysBody3D* pbody = App->physics->AddBody(ret, 0, SceneObjectType::Floor);
+	pbody->SetSensor();
+	pbody->collision_listeners.add(this);
+}
 void ModuleSceneIntro::CreateGoal(float x, float y, float z, bool isgoal) {
 
 	Cube ret(0.3f, 20, 20);
