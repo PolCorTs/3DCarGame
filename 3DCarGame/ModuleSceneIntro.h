@@ -47,6 +47,7 @@ public:
 	void CreateRamp(float width, float height, float large, float x, float y, float z, float degree, vec3 axis, Color color = ROAD_COLOR);
 	void CreateFan(float x, float y, float z, Color color = FAN_COLOR);
 	void CreateGoal(float x, float y, float z, bool isgoal = false);
+	void CreateLowerLimit(float width, float height, float large, float x, float y, float z, Color color = LIMIT_COLOR);
 
 public:
 	/*
