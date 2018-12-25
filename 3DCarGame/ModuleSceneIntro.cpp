@@ -66,9 +66,35 @@ void ModuleSceneIntro::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 
 void ModuleSceneIntro:: CreateMap() {
 
-	CreateNormalFloor(10, ROAD_HEIGHT, 400.f, 0, 10, 10 ,ROAD_COLOR);
+	//1st line
+	CreateNormalFloor(10, ROAD_HEIGHT, 180.f, 0, 10, 80 ,ROAD_COLOR);
 	CreateFan(0, 24, 30);
+	CreateFan(0, 24, 50);
+	CreateFan(0, 24, 70);
 	
+	//2nd line
+	CreateNormalFloor(190, ROAD_HEIGHT, 10, -90, 10, 175, ROAD_COLOR);
+
+	//3rd line
+	CreateNormalFloor(10, ROAD_HEIGHT, 40.f, -180, 10, 160, ROAD_COLOR);
+	
+	//4th line
+	CreateNormalFloor(60, ROAD_HEIGHT, 10.f, -145, 10, 145, ROAD_COLOR);
+
+	//5th line
+	CreateNormalFloor(10, ROAD_HEIGHT, 60.f, -120, 10, 120, ROAD_COLOR);
+
+	//6th line
+	CreateNormalFloor(60, ROAD_HEIGHT, 10.f, -145, 10, 85, ROAD_COLOR);
+
+	//7th line
+	CreateNormalFloor(10, ROAD_HEIGHT, 40.f, -180, 10, 70, ROAD_COLOR);
+
+	//8th line
+	CreateNormalFloor(80, ROAD_HEIGHT, 10.f, -145, 10, 50, ROAD_COLOR);
+
+	//9th line
+	CreateNormalFloor(10, ROAD_HEIGHT, 160.f, -110, 10, -25, ROAD_COLOR);
 }
 
 void ModuleSceneIntro::CreateNormalFloor(float width, float height, float large, float x, float y, float z, Color color)
@@ -121,7 +147,7 @@ void ModuleSceneIntro::CreateFan(float x, float y, float z, Color color) {
 	Cube c2(0.1f, 9.5f, 1);
 	c2.SetPos(x + 2, y, z);
 	PhysBody3D* c2_body = App->physics->AddBody(c2, 1000, SceneObjectType::Floor);
-	c2.color = Red;
+	c2.color = Blue;
 	
 
 	App->physics->AddConstraintHinge(*c_body, *c2_body, { 0,0,0 }, { 0,8,0 }, { 0,0,1 }, { 1,0,0 }, true);
