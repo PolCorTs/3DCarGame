@@ -12,6 +12,7 @@ enum SceneObjectType {
 	None = 0,
 	Floor,
 	Goal,
+	LapSensor,
 
 };
 // =================================================
@@ -26,6 +27,7 @@ public:
 	void GetTransform(float* matrix) const;
 	void SetTransform(const float* matrix) const;
 	void SetPos(float x, float y, float z);
+	void SetSensor() const;
 
 private:
 	btRigidBody* body = nullptr;
