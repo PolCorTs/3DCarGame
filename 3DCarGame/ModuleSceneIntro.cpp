@@ -41,6 +41,22 @@ update_status ModuleSceneIntro::Update(float dt)
 	p.axis = true;
 	p.Render();
 
+	dark_floor.Render();
+	for (p2List_item<Cube>* item = road.getFirst(); item; item = item->next)
+	{
+		item->data.Render();
+	}
+	for (p2List_item<Fan>* item = fan.getFirst(); item; item = item->next)
+	{
+		btQuaternion quat = item->data.body_cube2->GetRotation();
+		quat = quat.normalized();
+		float angle = 2 * acos(quat.w()) * 180 / 3.14;
+		float den = sqrt(1 - quat.w() *quat.w());
+		item->data.cube2.SetRotation(angle, { quat.x() / den,quat.y() / den,quat.z() / den });
+		item->data.cube2.SetPos(item->data.body_cube2->GetPos().x(), item->data.body_cube2->GetPos().y(), item->data.body_cube2->GetPos().z());
+		item->data.cube2.Render();
+	}
+
 	return UPDATE_CONTINUE;
 }
 
@@ -50,16 +66,16 @@ void ModuleSceneIntro::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 
 void ModuleSceneIntro:: CreateMap() {
 
-	CreateNormalFloor(10, ROAD_HEIGHT, 400.f, 0, 10, 10 /*ROAD_COLOR*/);
+	CreateNormalFloor(10, ROAD_HEIGHT, 400.f, 0, 10, 10 ,ROAD_COLOR);
 	CreateFan(0, 24, 30);
-
+	
 }
 
 void ModuleSceneIntro::CreateNormalFloor(float width, float height, float large, float x, float y, float z, Color color)
 {
 	Cube ret(width, height, large);
 	ret.SetPos(x, y, z);
-	ret.color = color;
+	ret.color = ROAD_COLOR;
 
 	road.add(ret);
 

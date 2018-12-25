@@ -7,5 +7,5 @@ Color Blue = Color(0.0f, 0.0f, 1.0f);
 Color Black = Color(0.0f, 0.0f, 0.0f);
 Color White = Color(1.0f, 1.0f, 1.0f);
 Color Orange = Color(1.0f, 0.65f, 0.0f);
-Color Grey = Color(0.41f, 0.41f, 0.41f);
+Color Grey = Color(0.41f, 0.41f, 0.41f,1.f);
 Color Yellow = Color(1.0f, 1.0f, 0.0f);
