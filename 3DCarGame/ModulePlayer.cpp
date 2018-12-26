@@ -98,6 +98,8 @@ bool ModulePlayer::Start()
 
 	vehicle = App->physics->AddVehicle(car);
 	InitialPos();
+
+	win_fx = App->audio->LoadFx("audio/win.wav");
 	
 	return true;
 }
@@ -164,6 +166,12 @@ void ModulePlayer::RespawnCar() {
 	vehicle->SetRotation({ 0,1,0,1 });
 	vehicle->vehicle->getRigidBody()->setAngularVelocity({ 0, 0, 0 });
 	vehicle->vehicle->getRigidBody()->setLinearVelocity({ 0, 0, 0 });
+	
+}
+
+void ModulePlayer::Win() {
+	input = false;
+	App->audio->PlayFx(win_fx);
 	
 }
 

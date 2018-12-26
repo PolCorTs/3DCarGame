@@ -8,7 +8,7 @@
 #define ROAD_COLOR Grey
 #define BALL_COLOR Orange
 #define FAN_COLOR Red
-#define LIMIT_COLOR Blue
+#define LIMIT_COLOR Green
 #define ROAD_HEIGHT 0.1f
 
 struct Fan {
@@ -36,18 +36,14 @@ public:
 	update_status Update(float dt);
 	bool CleanUp();
 
-	void OnCollision(PhysBody3D* body1, PhysBody3D* body2);
-	
 	void CreateMap();
-
-
+	void OnCollision(PhysBody3D* body1, PhysBody3D* body2);
 	void CreateNormalFloor(float width, float height, float large, float x, float y, float z, Color color = ROAD_COLOR);
-
-	//void CreateEndFloor(float width, float height, float large, float x, float y, float z, bool wallLeft = false, bool wallRight = false);
 	void CreateRamp(float width, float height, float large, float x, float y, float z, float degree, vec3 axis, Color color = ROAD_COLOR);
 	void CreateFan(float x, float y, float z, Color color = FAN_COLOR);
 	void CreateGoal(float x, float y, float z, bool isgoal = false);
 	void CreateLowerLimit(float width, float height, float large, float x, float y, float z, Color color = LIMIT_COLOR);
+
 
 public:
 	/*

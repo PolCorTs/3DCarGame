@@ -10,8 +10,8 @@ class btQuaternion;
 
 enum SceneObjectType {
 	None = 0,
-	Floor,
 	Goal,
+	Floor,
 	LapSensor,
 
 };

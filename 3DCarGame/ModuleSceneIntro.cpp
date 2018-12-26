@@ -62,11 +62,16 @@ update_status ModuleSceneIntro::Update(float dt)
 
 void ModuleSceneIntro::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 {
-	if (body1->type == Floor)
+	if (body1->type == 2)
 	{
 		App->player->RespawnCar();	
 	}
+	else if (body1->type == Goal)
+	{
+		App->player->Win();
+	}
 }
+
 
 void ModuleSceneIntro:: CreateMap() {
 
@@ -131,30 +136,26 @@ void ModuleSceneIntro::CreateRamp(float width, float height, float large, float 
 void ModuleSceneIntro::CreateLowerLimit(float width, float height, float large, float x, float y, float z, Color color) {
 	Cube ret(width, height, large);
 	ret.SetPos(x, y, z);
-	ret.color = color;
+	ret.color = LIMIT_COLOR;
 
 
 	road.add(ret);
-	
-	PhysBody3D* pbody = App->physics->AddBody(ret, 0, SceneObjectType::Floor);
-	pbody->SetSensor();
-	pbody->collision_listeners.add(this);
+
+	App->physics->AddBody(ret, 0, SceneObjectType::Floor);
+
+	//PhysBody3D* pbody = App->physics->AddBody(ret, 0, SceneObjectType::Floor);
+	//pbody->SetSensor();
+	//pbody->collision_listeners.add(this);
 }
+
 void ModuleSceneIntro::CreateGoal(float x, float y, float z, bool isgoal) {
 
 	Cube ret(0.3f, 20, 20);
 	ret.SetPos(x, y, z);
 
-	SceneObjectType type;
-
-	if (isgoal) {
-		type = Goal;
-	}
-	else {
-		type = LapSensor;
-	}
-	PhysBody3D* pbody = App->physics->AddBody(ret, 0, type);
-
+	road.add(ret);
+	
+	PhysBody3D* pbody = App->physics->AddBody(ret, 0, SceneObjectType::Goal);
 	pbody->SetSensor();
 	pbody->collision_listeners.add(this);
 }
@@ -168,7 +169,7 @@ void ModuleSceneIntro::CreateFan(float x, float y, float z, Color color) {
 	Cube c2(0.1f, 9.5f, 1);
 	c2.SetPos(x + 2, y, z);
 	PhysBody3D* c2_body = App->physics->AddBody(c2, 1000, SceneObjectType::Floor);
-	c2.color = Blue;
+	c2.color = color;
 	
 
 	App->physics->AddConstraintHinge(*c_body, *c2_body, { 0,0,0 }, { 0,8,0 }, { 0,0,1 }, { 1,0,0 }, true);

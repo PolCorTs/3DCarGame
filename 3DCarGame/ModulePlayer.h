@@ -22,10 +22,13 @@ public:
 public:
 
 	PhysVehicle3D* vehicle;
+	uint win_fx = 0;
 	float turn;
 	float acceleration;
 	float brake;
+	bool input = true;
 	void RespawnCar();
+	void Win();
 	void InitialPos() const;
 	
 
