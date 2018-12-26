@@ -57,26 +57,27 @@ update_status ModuleSceneIntro::Update(float dt)
 		item->data.cube2.SetPos(item->data.body_cube2->GetPos().x(), item->data.body_cube2->GetPos().y(), item->data.body_cube2->GetPos().z());
 		item->data.cube2.Render();
 	}
+	
+	if (App->player->vehicle->GetPosition().y < 9) {
+	//	App->player->RespawnCar();
+	}
 
+	if (App->player->vehicle->GetPosition().z < -91) {
+		App->player->Win();
+
+	}
 	return UPDATE_CONTINUE;
 }
 
 void ModuleSceneIntro::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 {
-	if (body1->type == None )
-	{
-		App->player->RespawnCar();	
-	}
-	else if (body1->type == Goal)
-	{
-		//App->player->Win();
-	}
+
 }
 
 
 void ModuleSceneIntro:: CreateMap() {
 
-	//CreateLowerLimit(1000, 1, 1000, 0, 9, 0,Black);
+	CreateLowerLimit(1000, 1, 1000, 0, 9, 0,Black);
 	//1st line
 	CreateNormalFloor(10, ROAD_HEIGHT, 180.f, 0, 10, 80 ,ROAD_COLOR);
 	CreateFan(0, 24, 30);
