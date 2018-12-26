@@ -1,7 +1,7 @@
 # 3DCarGame
 
 # Description
-This is a skill an endurance test , arrive at the end goal without falling.
+This is a skill an endurance test ,the Gulag experience in car game form , arrive at the end goal without falling.
 
 # Controls
 UP ARROW - Move forward <br>
