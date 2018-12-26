@@ -63,7 +63,7 @@ update_status ModuleSceneIntro::Update(float dt)
 
 void ModuleSceneIntro::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 {
-	if (body1->type == Floor)
+	if (body1->type == None )
 	{
 		App->player->RespawnCar();	
 	}
@@ -76,7 +76,7 @@ void ModuleSceneIntro::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 
 void ModuleSceneIntro:: CreateMap() {
 
-	CreateLowerLimit(1000, 1, 1000, 0, 9, 0,Black);
+	//CreateLowerLimit(1000, 1, 1000, 0, 9, 0,Black);
 	//1st line
 	CreateNormalFloor(10, ROAD_HEIGHT, 180.f, 0, 10, 80 ,ROAD_COLOR);
 	CreateFan(0, 24, 30);
@@ -143,13 +143,31 @@ void ModuleSceneIntro:: CreateMap() {
 
 	//3rd line
 	CreateNormalFloor(10, ROAD_HEIGHT, 40.f, -180, 10, 160, ROAD_COLOR);
-	CreateFan(-175, 24, 170);
+	CreateFan(-175, 24, 172);
+	CreateRamp(3, ROAD_HEIGHT, 10, -180, 10, 170, 90, { 1,0,0 }, BALL_COLOR); //center
+	CreateFan(-175, 24, 165);
+	CreateRamp(3, ROAD_HEIGHT, 10, -180, 10, 160, 90, { 1,0,0 }, BALL_COLOR); //center
+	CreateFan(-175, 24, 155);
+	CreateRamp(3, ROAD_HEIGHT, 10, -180, 10, 150, 90, { 1,0,0 }, BALL_COLOR); //center
 	
-	//4th line
+	 //4th line
 	CreateNormalFloor(60, ROAD_HEIGHT, 10.f, -145, 10, 145, ROAD_COLOR);
 
 	//5th line
 	CreateNormalFloor(10, ROAD_HEIGHT, 60.f, -120, 10, 120, ROAD_COLOR);
+
+	CreateRamp(3, ROAD_HEIGHT, 10, -120, 10, 130, 90, { 1,0,0 }, BALL_COLOR); //center
+	CreateRamp(3, ROAD_HEIGHT, 10, -123, 10, 127, 90, { 1,0,0 }, BALL_COLOR); //right
+	CreateFan(-115, 24, 125.5);
+	CreateRamp(3, ROAD_HEIGHT, 10, -117, 10, 124, 90, { 1,0,0 }, BALL_COLOR); //left
+	CreateRamp(3, ROAD_HEIGHT, 10, -120, 10, 121, 90, { 1,0,0 }, BALL_COLOR); //center
+	CreateFan(-115, 24, 117);
+	CreateRamp(3, ROAD_HEIGHT, 10, -123, 10, 115, 90, { 1,0,0 }, BALL_COLOR); //right
+	CreateRamp(3, ROAD_HEIGHT, 10, -117, 10, 118, 90, { 1,0,0 }, BALL_COLOR); //left
+	CreateFan(-115, 24, 113);
+	CreateRamp(3, ROAD_HEIGHT, 10, -120, 10, 110, 90, { 1,0,0 }, BALL_COLOR); //center
+	CreateFan(-115, 24, 107);
+
 
 	//6th line
 	CreateNormalFloor(60, ROAD_HEIGHT, 10.f, -145, 10, 85, ROAD_COLOR);
@@ -157,11 +175,84 @@ void ModuleSceneIntro:: CreateMap() {
 	//7th line
 	CreateNormalFloor(10, ROAD_HEIGHT, 40.f, -180, 10, 70, ROAD_COLOR);
 
+	CreateFan(-175, 24, 55);
+	CreateRamp(3, ROAD_HEIGHT, 10, -180, 10, 60, 90, { 1,0,0 }, BALL_COLOR); //center
+	CreateFan(-175, 24, 65);
+	CreateRamp(3, ROAD_HEIGHT, 10, -180, 10, 70, 90, { 1,0,0 }, BALL_COLOR); //center
+	CreateFan(-175, 24, 75);
+	CreateRamp(3, ROAD_HEIGHT, 10, -180, 10, 80, 90, { 1,0,0 }, BALL_COLOR); //center
+	CreateFan(-175, 24, 85);
+
 	//8th line
 	CreateNormalFloor(80, ROAD_HEIGHT, 10.f, -145, 10, 50, ROAD_COLOR);
 
 	//9th line
 	CreateNormalFloor(10, ROAD_HEIGHT, 160.f, -110, 10, -25, ROAD_COLOR);
+
+	CreateFan(-105, 24, 41); 
+	CreateRamp(3, ROAD_HEIGHT, 10, -113, 10, 39, 90, { 1,0,0 }, BALL_COLOR);
+	CreateRamp(3, ROAD_HEIGHT, 10, -107, 10, 39, 90, { 1,0,0 }, BALL_COLOR);
+	CreateFan(-105, 24, 37);
+	CreateRamp(3, ROAD_HEIGHT, 10, -110, 10, 35, 90, { 1,0,0 }, BALL_COLOR);
+	CreateFan(-105, 24, 33);
+	CreateRamp(3, ROAD_HEIGHT, 10, -113, 10, 30, 90, { 1,0,0 }, BALL_COLOR);
+	CreateRamp(3, ROAD_HEIGHT, 10, -107, 10, 30, 90, { 1,0,0 }, BALL_COLOR);
+	CreateFan(-105, 24, 28);
+	CreateRamp(3, ROAD_HEIGHT, 10, -110, 10, 26, 90, { 1,0,0 }, BALL_COLOR);
+	CreateFan(-105, 24, 24);
+	CreateRamp(3, ROAD_HEIGHT, 10, -113, 10, 22, 90, { 1,0,0 }, BALL_COLOR);
+	CreateRamp(3, ROAD_HEIGHT, 10, -107, 10, 22, 90, { 1,0,0 }, BALL_COLOR);
+	CreateRamp(3, ROAD_HEIGHT, 10, -110, 10, 18, 90, { 1,0,0 }, BALL_COLOR);
+	CreateFan(-105, 24, 16);
+	CreateRamp(3, ROAD_HEIGHT, 10, -107, 10, 14, 90, { 1,0,0 }, BALL_COLOR);
+	CreateRamp(3, ROAD_HEIGHT, 10, -110, 10, 14, 90, { 1,0,0 }, BALL_COLOR);
+	CreateFan(-105, 24, 10);
+	CreateRamp(3, ROAD_HEIGHT, 10, -110, 10, 8, 90, { 1,0,0 }, BALL_COLOR);
+	CreateFan(-105, 24, 6);
+	CreateRamp(3, ROAD_HEIGHT, 10, -113, 10, 0, 90, { 1,0,0 }, BALL_COLOR);
+	CreateRamp(3, ROAD_HEIGHT, 10, -107, 10, 0, 90, { 1,0,0 }, BALL_COLOR);
+	CreateFan(-105, 24, -2);
+	CreateFan(-105, 24, -4);
+	CreateFan(-105, 24, -6);
+	CreateRamp(3, ROAD_HEIGHT, 10, -113, 10, -8, 90, { 1,0,0 }, BALL_COLOR);
+	CreateRamp(3, ROAD_HEIGHT, 10, -107, 10, -8, 90, { 1,0,0 }, BALL_COLOR);
+	CreateFan(-105, 24, -12);
+	CreateFan(-105, 24, -16);
+	CreateRamp(3, ROAD_HEIGHT, 10, -110, 10, -20, 90, { 1,0,0 }, BALL_COLOR);
+	CreateRamp(3, ROAD_HEIGHT, 10, -113, 10, -23, 90, { 1,0,0 }, BALL_COLOR);
+	CreateRamp(3, ROAD_HEIGHT, 10, -107, 10, -23, 90, { 1,0,0 }, BALL_COLOR);
+	
+	CreateRamp(3, ROAD_HEIGHT, 10, -110, 10, -25, 90, { 1,0,0 }, BALL_COLOR); //center
+
+	CreateFan(-105, 24, -27);
+	CreateFan(-105, 24, -30);
+
+	CreateRamp(3, ROAD_HEIGHT, 10, -110, 10, -33, 90, { 1,0,0 }, BALL_COLOR);
+	CreateRamp(3, ROAD_HEIGHT, 10, -113, 10, -36, 90, { 1,0,0 }, BALL_COLOR);
+	CreateRamp(3, ROAD_HEIGHT, 10, -107, 10, -39, 90, { 1,0,0 }, BALL_COLOR);
+
+	CreateFan(-105, 24, -43);
+	CreateFan(-105, 24, -46);
+	CreateFan(-105, 24, -50);
+	
+	CreateRamp(3, ROAD_HEIGHT, 10, -113, 10, -53, 90, { 1,0,0 }, BALL_COLOR);
+	CreateRamp(3, ROAD_HEIGHT, 10, -110, 10, -56, 90, { 1,0,0 }, BALL_COLOR);
+	CreateRamp(3, ROAD_HEIGHT, 10, -107, 10, -60, 90, { 1,0,0 }, BALL_COLOR);
+	CreateFan(-105, 24, -63);
+
+	CreateRamp(3, ROAD_HEIGHT, 10, -110, 10, -68, 90, { 1,0,0 }, BALL_COLOR);
+	CreateFan(-105, 24, -72);
+	CreateFan(-105, 24, -75);
+	CreateFan(-105, 24, -78);
+
+	CreateRamp(3, ROAD_HEIGHT, 10, -113, 10, -82, 90, { 1,0,0 }, BALL_COLOR);
+	CreateRamp(3, ROAD_HEIGHT, 10, -107, 10, -82, 90, { 1,0,0 }, BALL_COLOR);
+	CreateRamp(3, ROAD_HEIGHT, 10, -113, 10, -84, 90, { 1,0,0 }, BALL_COLOR);
+	CreateRamp(3, ROAD_HEIGHT, 10, -107, 10, -84, 90, { 1,0,0 }, BALL_COLOR);
+	CreateRamp(3, ROAD_HEIGHT, 10, -113, 10, -86, 90, { 1,0,0 }, BALL_COLOR);
+	CreateRamp(3, ROAD_HEIGHT, 10, -107, 10, -86, 90, { 1,0,0 }, BALL_COLOR);
+
+	CreateGoal(-110, 20.5, -92, true);
 }
 
 void ModuleSceneIntro::CreateNormalFloor(float width, float height, float large, float x, float y, float z, Color color)
@@ -203,9 +294,9 @@ void ModuleSceneIntro::CreateLowerLimit(float width, float height, float large, 
 
 void ModuleSceneIntro::CreateGoal(float x, float y, float z, bool isgoal) {
 
-	Cube ret(0.3f, 20, 20);
+	Cube ret(20, 20, 0.3f);
 	ret.SetPos(x, y, z);
-
+	ret.color = Green;
 	road.add(ret);
 	
 	PhysBody3D* pbody = App->physics->AddBody(ret, 0, SceneObjectType::Goal);
