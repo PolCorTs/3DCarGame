@@ -83,14 +83,66 @@ void ModuleSceneIntro:: CreateMap() {
 	CreateFan(0, 24, 50);
 	CreateFan(0, 24, 70);
 
-	
+	CreateRamp(3, ROAD_HEIGHT, 10, 0, 10, 25, 90, { 1,0,0 }, BALL_COLOR); //center
+
+	CreateRamp(3, ROAD_HEIGHT, 10, 3, 10, 60, 90, { 1,0,0 }, BALL_COLOR); //left
+	CreateRamp(3, ROAD_HEIGHT, 10, -3, 10, 60, 90, { 1,0,0 }, BALL_COLOR); //right
+
+	CreateRamp(3, ROAD_HEIGHT, 10, 0, 10,90, 90, { 1,0,0 }, BALL_COLOR); //center
 
 	
+	CreateRamp(5, ROAD_HEIGHT, 10, -3, 10, 110, -45, { 1,0,1 }, BALL_COLOR); //Right inclinated
+	CreateRamp(5, ROAD_HEIGHT, 10, 3, 10, 110, 45, { 0,1,1 }, BALL_COLOR); //left inclinated
+	
+	CreateFan(0, 24, 130);
+	
+	CreateRamp(5, ROAD_HEIGHT, 10, -3, 10, 140, -45, { 1,0,1 }, BALL_COLOR); //Right inclinated
+	CreateRamp(5, ROAD_HEIGHT, 10, 3, 10, 140, 45, { 0,1,1 }, BALL_COLOR); //left inclinated
+
+	CreateFan(0, 24, 150);
+
 	//2nd line
 	CreateNormalFloor(190, ROAD_HEIGHT, 10, -90, 10, 175, ROAD_COLOR);
 
+	CreateRamp(10, ROAD_HEIGHT, 3, -10, 10, 175, 90, { 0,0,1 }, BALL_COLOR); //center
+	CreateRamp(10, ROAD_HEIGHT, 3,-25, 10, 178, 90, { 0,0,1 }, BALL_COLOR); //left
+	CreateRamp(10, ROAD_HEIGHT, 3, -35, 10, 172, 90, { 0,0,1 }, BALL_COLOR); //right
+
+	CreateRamp(10, ROAD_HEIGHT, 3, -42, 10, 175, 90, { 0,0,1 }, BALL_COLOR); //center
+	CreateRamp(10, ROAD_HEIGHT, 3, -50, 10, 178, 90, { 0,0,1 }, BALL_COLOR); //left
+	CreateRamp(10, ROAD_HEIGHT, 3, -54, 10, 172, 90, { 0,0,1 }, BALL_COLOR); //right
+
+	CreateRamp(10, ROAD_HEIGHT, 3, -60, 10, 175, 90, { 0,0,1 }, BALL_COLOR); //center
+	CreateRamp(10, ROAD_HEIGHT, 3, -68, 10, 178, 90, { 0,0,1 }, BALL_COLOR); //left
+	CreateRamp(10, ROAD_HEIGHT, 3, -73, 10, 172, 90, { 0,0,1 }, BALL_COLOR); //right
+
+	CreateRamp(10, ROAD_HEIGHT, 3, -78, 10, 175, 90, { 0,0,1 }, BALL_COLOR); //center
+	CreateRamp(10, ROAD_HEIGHT, 3, -84, 10, 172, 90, { 0,0,1 }, BALL_COLOR); //right
+	CreateRamp(10, ROAD_HEIGHT, 3, -90, 10, 178, 90, { 0,0,1 }, BALL_COLOR); //left
+	
+	CreateRamp(10, ROAD_HEIGHT, 3, -98, 10, 175, 90, { 0,0,1 }, BALL_COLOR); //center
+	CreateRamp(10, ROAD_HEIGHT, 3, -104, 10, 172, 90, { 0,0,1 }, BALL_COLOR); //right
+	CreateRamp(10, ROAD_HEIGHT, 3, -108, 10, 178, 90, { 0,0,1 }, BALL_COLOR); //left
+	
+	CreateRamp(10, ROAD_HEIGHT, 3, -114, 10, 172, 90, { 0,0,1 }, BALL_COLOR); //right
+	CreateRamp(10, ROAD_HEIGHT, 3, -120, 10, 178, 90, { 0,0,1 }, BALL_COLOR); //left
+	CreateRamp(10, ROAD_HEIGHT, 3, -128, 10, 175, 90, { 0,0,1 }, BALL_COLOR); //center
+	
+	CreateRamp(10, ROAD_HEIGHT, 3, -134, 10, 172, 90, { 0,0,1 }, BALL_COLOR); //right
+	CreateRamp(10, ROAD_HEIGHT, 3, -140, 10, 178, 90, { 0,0,1 }, BALL_COLOR); //left
+	CreateRamp(10, ROAD_HEIGHT, 3, -144, 10, 175, 90, { 0,0,1 }, BALL_COLOR); //center
+	
+	CreateRamp(10, ROAD_HEIGHT, 3, -150, 10, 175, 90, { 0,0,1 }, BALL_COLOR); //center
+	CreateRamp(10, ROAD_HEIGHT, 3, -154, 10, 178, 90, { 0,0,1 }, BALL_COLOR); //left
+	CreateRamp(10, ROAD_HEIGHT, 3, -159, 10, 172, 90, { 0,0,1 }, BALL_COLOR); //right
+
+	CreateRamp(10, ROAD_HEIGHT, 3, -163, 10, 172, 90, { 0,0,1 }, BALL_COLOR); //right
+	CreateRamp(10, ROAD_HEIGHT, 3, -167, 10, 178, 90, { 0,0,1 }, BALL_COLOR); //left
+	CreateRamp(10, ROAD_HEIGHT, 3, -170, 10, 175, 90, { 0,0,1 }, BALL_COLOR); //center
+
 	//3rd line
 	CreateNormalFloor(10, ROAD_HEIGHT, 40.f, -180, 10, 160, ROAD_COLOR);
+	CreateFan(-175, 24, 170);
 	
 	//4th line
 	CreateNormalFloor(60, ROAD_HEIGHT, 10.f, -145, 10, 145, ROAD_COLOR);
