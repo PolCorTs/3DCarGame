@@ -137,6 +137,7 @@ void ModuleSceneIntro:: CreateMap() {
 
 	//3rd line
 	CreateNormalFloor(10, ROAD_HEIGHT, 40.f, -180, 10, 160, ROAD_COLOR);
+	CreateFan(-175, 24, 170);
 	
 	//4th line
 	CreateNormalFloor(60, ROAD_HEIGHT, 10.f, -145, 10, 145, ROAD_COLOR);
