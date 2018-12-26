@@ -141,7 +141,10 @@ update_status ModulePlayer::Update(float dt)
 	{
 		brake = BRAKE_POWER;
 	}
-
+	if (App->input->GetKey(SDL_SCANCODE_R) == KEY_REPEAT)
+	{
+		RespawnCar();
+	}
 	vehicle->ApplyEngineForce(acceleration);
 	vehicle->Turn(turn);
 	vehicle->Brake(brake);
@@ -163,7 +166,7 @@ void ModulePlayer::InitialPos() const {
 }
 void ModulePlayer::RespawnCar() {
 	InitialPos();
-	vehicle->SetRotation({ 0,1,0,1 });
+	vehicle->SetRotation({ 0,0,0,1 });
 	vehicle->vehicle->getRigidBody()->setAngularVelocity({ 0, 0, 0 });
 	vehicle->vehicle->getRigidBody()->setLinearVelocity({ 0, 0, 0 });
 	

@@ -7,8 +7,8 @@
 #define MAX_SNAKE 2
 #define ROAD_COLOR Grey
 #define BALL_COLOR Orange
-#define FAN_COLOR Red
-#define LIMIT_COLOR Green
+#define FAN_COLOR Blue
+#define LIMIT_COLOR Black
 #define ROAD_HEIGHT 0.1f
 
 struct Fan {

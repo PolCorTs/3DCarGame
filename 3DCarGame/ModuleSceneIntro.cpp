@@ -4,6 +4,7 @@
 #include "Primitive.h"
 #include "PhysBody3D.h"
 #include "ModulePhysics3D.h"
+#include "PhysVehicle3D.h"
 
 ModuleSceneIntro::ModuleSceneIntro(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
@@ -41,7 +42,7 @@ update_status ModuleSceneIntro::Update(float dt)
 	p.axis = true;
 	p.Render();
 
-	dark_floor.Render();
+	//dark_floor.Render();
 	for (p2List_item<Cube>* item = road.getFirst(); item; item = item->next)
 	{
 		item->data.Render();
@@ -62,20 +63,20 @@ update_status ModuleSceneIntro::Update(float dt)
 
 void ModuleSceneIntro::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 {
-	if (body1->type == 2)
+	if (body1->type == Floor)
 	{
 		App->player->RespawnCar();	
 	}
 	else if (body1->type == Goal)
 	{
-		App->player->Win();
+		//App->player->Win();
 	}
 }
 
 
 void ModuleSceneIntro:: CreateMap() {
 
-	CreateLowerLimit(1000, 1, 1000, 0, 4.5f, 0 ,Black);
+	CreateLowerLimit(1000, 1, 1000, 0, 9, 0,Black);
 	//1st line
 	CreateNormalFloor(10, ROAD_HEIGHT, 180.f, 0, 10, 80 ,ROAD_COLOR);
 	CreateFan(0, 24, 30);
@@ -193,11 +194,11 @@ void ModuleSceneIntro::CreateLowerLimit(float width, float height, float large, 
 
 	road.add(ret);
 
-	App->physics->AddBody(ret, 0, SceneObjectType::Floor);
+	//App->physics->AddBody(ret, 0, SceneObjectType::Floor);
 
-	//PhysBody3D* pbody = App->physics->AddBody(ret, 0, SceneObjectType::Floor);
-	//pbody->SetSensor();
-	//pbody->collision_listeners.add(this);
+	PhysBody3D* pbody = App->physics->AddBody(ret, 0, SceneObjectType::Floor);
+	pbody->SetSensor();
+	pbody->collision_listeners.add(this);
 }
 
 void ModuleSceneIntro::CreateGoal(float x, float y, float z, bool isgoal) {
