@@ -10,5 +10,6 @@ LEFT ARROW - Move left<br>
 RIGHT ARROW - Move right<br>
 SPACE - Handbreak.<br>
 
+R - Restart the level.<br>
 # Authors
 This game was made by Ferran Barnes and Pol Cortes
