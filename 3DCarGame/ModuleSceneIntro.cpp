@@ -59,7 +59,7 @@ update_status ModuleSceneIntro::Update(float dt)
 	}
 	
 	if (App->player->vehicle->GetPosition().y < 9) {
-	//	App->player->RespawnCar();
+		App->player->RespawnCar();
 	}
 
 	if (App->player->vehicle->GetPosition().z < -91) {
